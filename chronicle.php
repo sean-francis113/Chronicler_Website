@@ -14,6 +14,9 @@
     include("pages/sidebar.php");
     include("pages/chronicle_content.php");
     include("pages/footer.php");
+	include("scripts/dynamic_adjust.php");
+	
+	mysqli_close($conn);
 
 ?>
     

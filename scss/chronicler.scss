@@ -1,0 +1,227 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100em;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+    chronicler.css Start
+*/
+
+body {
+    background-image: url(../img/woodtexture5.jpg);
+    background-repeat: repeat;
+
+    #wrapper {
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    p {
+        margin-bottom: 15px;
+        line-height: 1.5em;
+        text-indent: 1.5em;
+    }
+
+    header.dfs {
+        background-image: url(../img/crumpled-paper-texture-a.png);
+        background-repeat: repeat;
+        margin-bottom: 25px;
+        text-align: center;
+
+        h1 {
+            font-size: 3.8em;
+            line-height: 0.8em;
+        }
+
+        hr {
+            color: black;
+            width: 50em;
+        }
+
+        #site_navigation {
+            font-size: 2.5em;
+            padding-left: 18em;
+
+            li {
+                padding-right: 5em;
+                display: inline;
+            }
+        }
+    }
+
+    #sidebar.dfs {
+        float: left;
+        width: 15em;
+        padding-top: 10px;
+        text-align: center;
+        background-image: url(../img/crumpled-paper-texture-a.png);
+        background-repeat: repeat;
+        margin-bottom: 10px;
+        margin-right: 2.5em;
+
+        #sidebar_label {
+            font-size: 2.5em;
+        }
+
+        #sidebar_sublabel {
+            font-size: 2em;
+            font-style: italic;
+        }
+
+        #sidebar_list {
+            padding-top: 15px;
+            padding-bottom: 10px;
+
+            li {
+                padding-top: 10px;
+            }
+        }
+
+        .deactivated_link {
+            text-decoration: line-through;
+        }
+    }
+
+    #main_content_cover.dfs {
+
+        #main_content {
+            width: 176em;
+            background-image: url(../img/crumpled-paper-texture-a.png);
+            background-repeat: repeat;
+            float: left;
+            text-align: left;
+            padding-bottom: 20px;
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+            margin-bottom: 10px;
+
+            #page_title {
+                font-size: 2.5em;
+                font-weight: bold;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            #page_subtitle {
+                font-size: 2em;
+                text-align: center;
+                font-style: italic;
+                margin-bottom: 20px;
+            }
+
+            #warning_note {
+                font-size: 1.5em;
+                font-style: italic;
+                text-decoration: underline;
+                text-align: center;
+            }
+
+            #chronicle_table {
+                margin-left: 2em;
+                margin-right: 2em;
+                margin-top: 20px;
+                width: 170em;
+                table-layout: fixed;
+
+                tr th, tr td {
+                    text-align: center;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    border: solid 2px black;
+                }
+
+                .channel_status_data, .channel_name_data, .channel_owner_data,
+                .warning_list_data, .date_data {
+                    text-overflow: ellipsis;
+                    word-wrap: break-word;
+                }
+
+            }
+
+            #page_list {
+                margin-left: 25em;
+                margin-right: 25em;
+                padding-bottom: 25px;
+            }
+
+            #page_list_num, #ellipses {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+    
+        }
+    
+    }
+    footer.dfs {
+        background-image: url(../img/crumpled-paper-texture-a.png);
+        background-repeat: repeat;
+        clear: both;
+        margin-top: 25px;
+        padding-top: 10px;
+
+        .footer_section {
+            padding-left: 5em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 2em;
+            display: inline;
+        }
+
+        #copyright {
+            font-size: 0.75em;
+            text-align: right;
+            margin-left: 85em;
+            margin-top: 40px;
+        }
+    }
+}

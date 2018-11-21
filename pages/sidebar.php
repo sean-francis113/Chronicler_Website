@@ -77,7 +77,7 @@
     }
 ?>
 
-<div id="sidebar">
+<div id="sidebar" class="dfs">
     <div id="sidebar_label">Chronicle List</div>
     <div id="sidebar_sublabel">(Sorted by Chronicle Name)</div>
     <ul id="sidebar_list">        

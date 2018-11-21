@@ -6,7 +6,7 @@
 
 <body>
     <div id="wrapper">
-            <header>
+            <header class="dfs">
                 <h1 id="site_label">The Chronicler Database</h1>
                 <hr>
                 <ul id="site_navigation">

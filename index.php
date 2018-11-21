@@ -10,14 +10,11 @@
         die('Could not connect: ' . mysqli_connect_error());
     }    
     
-    
-    $pageTitle = "Chronicler Database";
-    $css = "wiki.css";
-
     include("pages/header.php");
     include("pages/sidebar.php");
     include("pages/index_content.php");
     include("pages/footer.php");
+	include("scripts/dynamic_adjust.php");
     
     mysqli_close($conn);
 
