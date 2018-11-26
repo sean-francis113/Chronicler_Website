@@ -72,9 +72,11 @@ body {
     }
 
     header.dfs {
-        background-image: url(../img/crumpled-paper-texture-a.png);
+        background-image: url(../img/seamless_paper.jpg);
         background-repeat: repeat;
         margin-bottom: 25px;
+        padding-top: 25px;
+        padding-bottom: 25px;
         text-align: center;
 
         h1 {
@@ -84,15 +86,14 @@ body {
 
         hr {
             color: black;
-            width: 50em;
+            width: 50%;
         }
 
         #site_navigation {
-            font-size: 2.5em;
-            padding-left: 18em;
+            font-size: 2em;
 
             li {
-                padding-right: 5em;
+                padding-right: 4%;
                 display: inline;
             }
         }
@@ -100,20 +101,20 @@ body {
 
     #sidebar.dfs {
         float: left;
-        width: 15em;
+        width: 15%;
         padding-top: 10px;
         text-align: center;
-        background-image: url(../img/crumpled-paper-texture-a.png);
+        background-image: url(../img/seamless_paper.jpg);
         background-repeat: repeat;
         margin-bottom: 10px;
-        margin-right: 2.5em;
+        margin-right: 1.5%;
 
         #sidebar_label {
-            font-size: 2.5em;
+            font-size: 1.75em;
         }
 
         #sidebar_sublabel {
-            font-size: 2em;
+            font-size: 1.25em;
             font-style: italic;
         }
 
@@ -123,6 +124,7 @@ body {
 
             li {
                 padding-top: 10px;
+                display: list-item;
             }
         }
 
@@ -131,97 +133,141 @@ body {
         }
     }
 
-    #main_content_cover.dfs {
+    #main_content.dfs {
+        background-image: url(../img/seamless_paper.jpg);
+        background-repeat: repeat;
+        float: left;
+        width: 80.5%;
+        text-align: left;
+        padding-bottom: 20px;
+        padding-left: 1.5%;
+        padding-right: 1.5%;
+        margin-bottom: 10px;
 
-        #main_content {
-            width: 176em;
-            background-image: url(../img/crumpled-paper-texture-a.png);
-            background-repeat: repeat;
-            float: left;
-            text-align: left;
-            padding-bottom: 20px;
-            padding-left: 1.5em;
-            padding-right: 1.5em;
+        #page_title {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
             margin-bottom: 10px;
-
-            #page_title {
-                font-size: 2.5em;
-                font-weight: bold;
-                margin-top: 20px;
-                margin-bottom: 10px;
-                text-align: center;
-            }
-
-            #page_subtitle {
-                font-size: 2em;
-                text-align: center;
-                font-style: italic;
-                margin-bottom: 20px;
-            }
-
-            #warning_note {
-                font-size: 1.5em;
-                font-style: italic;
-                text-decoration: underline;
-                text-align: center;
-            }
-
-            #chronicle_table {
-                margin-left: 2em;
-                margin-right: 2em;
-                margin-top: 20px;
-                width: 170em;
-                table-layout: fixed;
-
-                tr th, tr td {
-                    text-align: center;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
-                    border: solid 2px black;
-                }
-
-                .channel_status_data, .channel_name_data, .channel_owner_data,
-                .warning_list_data, .date_data {
-                    text-overflow: ellipsis;
-                    word-wrap: break-word;
-                }
-
-            }
-
-            #page_list {
-                margin-left: 25em;
-                margin-right: 25em;
-                padding-bottom: 25px;
-            }
-
-            #page_list_num, #ellipses {
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-    
+            font-size: 2.5em;
         }
-    
+
+        #page_subtitle {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        #warning_note {
+            font-size: 1.25em;
+            font-style: italic;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.5em;
+        }
+
+        #chronicle_table.dfs {
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+            margin-top: 20px;
+            table-layout: fixed;
+
+            tr th, tr td {
+                text-align: center;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                border: solid 2px black;
+            }
+
+            #channel_status_column {
+                width: 5%;
+            }
+
+            #channel_name_column, #channel_owner_column,
+            #warning_list_column {
+                width: 25%;
+            }
+
+            #date_column {
+                width: 15%;
+            }
+
+            #channel_status_column span, #channel_name_column span, #channel_owner_column span,
+            #warning_list_column span, #date_column span {
+                text-overflow: ellipsis;
+                word-wrap: break-word;
+            }
+        }
+
+        #page_list {
+            margin-left: 25em;
+            margin-right: 25em;
+            padding-bottom: 25px;
+        }
+
+        #page_list_num, #ellipses {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
     }
+
     footer.dfs {
-        background-image: url(../img/crumpled-paper-texture-a.png);
+        background-image: url(../img/seamless_paper.jpg);
         background-repeat: repeat;
         clear: both;
-        margin-top: 25px;
-        padding-top: 10px;
+        margin-top: 40px;
+        padding-top: 25px;
+        padding-bottom: 20px;
 
-        .footer_section {
-            padding-left: 5em;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            font-size: 2em;
-            display: inline;
+        #footer_navigation {
+            text-align: center;
+            margin-bottom: 20px;
+
+            li {
+                padding-right: 2%;
+                font-size: 2em;
+                display: inline;
+            }
         }
 
         #copyright {
             font-size: 0.75em;
             text-align: right;
-            margin-left: 85em;
+            margin-left: 90%;
             margin-top: 40px;
+            padding-bottom: 40px;
         }
     }
+}
+
+@media screen and (max-width: 950px)
+{
+
+    body {
+        #sidebar.dfs{
+            float: initial;
+            margin-right: 0em;
+            width: 100%;
+
+            #sidebar_list{
+                padding-bottom: 15px;
+
+                li{
+                    display: inline;
+                    padding-top: initial;
+                    padding-right: 4%;
+                }
+            }
+        }
+    }
+
+    #main_content{
+        width: 97%;
+    }
+
 }

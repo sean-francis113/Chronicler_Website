@@ -2,6 +2,7 @@
     <title>Chronicler Database</title>
     <link rel="stylesheet" href="css/chronicler.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="scripts/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>

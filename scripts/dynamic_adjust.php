@@ -19,14 +19,14 @@
             // otherwise, if the width of the window is less than the height, we use the width based size
             var _fs = (_window.x > _window.y ? ((_fsx + _fsy) * 0.5) : _fsx );
 
-            // our minimum base font-size should be 8px, or whatever you want
-            if (_fs < 16) {
-                _fs = 16;
+            // our minimum base font-size should be 8px
+            if (_fs < 8) {
+                _fs = 8;
             }
 
-            // our maximum base font-size should be 20px, or whatever you want
-            if (_fs > 40) {
-                _fs = 40;
+            // our maximum base font-size should be 20px
+            if (_fs > 30) {
+                _fs = 30;
             }
 
 
