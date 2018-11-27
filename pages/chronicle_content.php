@@ -101,44 +101,85 @@
         
 		if($info_row['is_blacklisted'] == false)
 		{
+
+			$current_page = $_GET['page'];
+			$prev_page = $current_page - 1;
+			$next_page = $current_page + 1;
             
 			if($word_count > 1000 && $word_count > 1250)
 			{
 
-				echo "<ul id=\'page_list\'>";
+				echo "<ul id='page_list'>";
 
-				$pageCount = round(($char_count / 3000), 0, PHP_ROUND_HALF_UP);
+				$page_count = round(($word_count / 1000), 0, PHP_ROUND_HALF_UP);
 
-				if($pageCount > 4 && $_GET['page'] >= 4)
+				if($page_count > 4)
 				{
 
-					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$i}'>First</a></li><li class='ellipses'>...</li>";
+					if($current_page - 2 > 1)
+					{
+						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page=1'>First</a></li><li class='ellipses'>...</li>";
+						$start_page = $current_page - 2;
+					}
+					else{
+						$start_page = 1;
+					}
 
-					for($i = $_GET['page'] - 2; $i < $_GET['page'] + 2; $i++)
+					if($current_page + 2 < $page_count)
+					{
+						$end_page = $current_page + 2;
+					}
+					else{
+						$end_page = $page_count;
+					}
+
+					if($current_page != 1)
+					{
+
+						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$prev_page}'>Previous</a></li>";
+
+					}
+
+					for($i = $start_page; $i <= $end_page; $i++)
+					{
+
+						if($i != $current_page)
+						{
+							
+							echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+
+						}
+						else{
+						
+							echo "<li class='page_list_num'><a id='current_page' href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+
+						}
+
+					}
+
+					if($current_page != $page_count)
+					{
+
+						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$next_page}'>Next</a></li>";
+
+					}
+
+					if($current_page + 2 < $page_count)
+					{
+						echo "<li class='ellipses'>...</li><li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$page_count}'>Last</a></li>";
+					}
+
+				}
+
+				if($page_count <= 4)
+				{
+
+					for($i = 1; $i <= $page_count; $i++)
 					{
 
 						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
 
 					}
-
-				}
-
-				if($pageCount <= 4)
-				{
-
-					for($i = 1; $i <= $pageCount; $i++)
-					{
-
-						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
-
-					}
-
-				}
-
-				if($pageCount > 4 && $_GET['page'] <= $pageCount - 4)
-				{
-
-					echo "<li class='ellipses'>...</li><li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$pageCount}'>Last</a></li>";
 
 				}
 

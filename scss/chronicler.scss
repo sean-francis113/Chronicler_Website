@@ -56,8 +56,8 @@ body {
     background-repeat: repeat;
 
     #wrapper {
-        margin-left: 5em;
-        margin-right: 5em;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     a {
@@ -106,7 +106,7 @@ body {
         text-align: center;
         background-image: url(../img/seamless_paper.jpg);
         background-repeat: repeat;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
         margin-right: 1.5%;
 
         #sidebar_label {
@@ -142,7 +142,7 @@ body {
         padding-bottom: 20px;
         padding-left: 1.5%;
         padding-right: 1.5%;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
 
         #page_title {
             text-align: center;
@@ -175,6 +175,7 @@ body {
             margin-left: 1.5%;
             margin-right: 1.5%;
             margin-top: 20px;
+            width: 95%;
             table-layout: fixed;
 
             tr th, tr td {
@@ -182,6 +183,11 @@ body {
                 padding-top: 15px;
                 padding-bottom: 15px;
                 border: solid 2px black;
+            }
+
+            tr td {
+                text-overflow: ellipsis;
+                word-wrap: break-word;
             }
 
             #channel_status_column {
@@ -196,23 +202,22 @@ body {
             #date_column {
                 width: 15%;
             }
-
-            #channel_status_column span, #channel_name_column span, #channel_owner_column span,
-            #warning_list_column span, #date_column span {
-                text-overflow: ellipsis;
-                word-wrap: break-word;
-            }
         }
 
         #page_list {
-            margin-left: 25em;
-            margin-right: 25em;
             padding-bottom: 25px;
-        }
+            font-size: 1.25em;
+            text-align: center;
 
-        #page_list_num, #ellipses {
-            padding-left: 15px;
-            padding-right: 15px;
+            li {
+                padding-right: 3%;
+                display: inline;
+            }
+
+            #current_page {
+                font-size: 2em;
+                font-weight: bold;
+            }
         }
     }
 
@@ -229,7 +234,7 @@ body {
             margin-bottom: 20px;
 
             li {
-                padding-right: 2%;
+                padding-right: 4%;
                 font-size: 2em;
                 display: inline;
             }
@@ -238,7 +243,7 @@ body {
         #copyright {
             font-size: 0.75em;
             text-align: right;
-            margin-left: 90%;
+            margin-left: 85%;
             margin-top: 40px;
             padding-bottom: 40px;
         }
@@ -249,25 +254,30 @@ body {
 {
 
     body {
-        #sidebar.dfs{
+        #wrapper {
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+
+        #sidebar.dfs {
             float: initial;
             margin-right: 0em;
             width: 100%;
 
-            #sidebar_list{
+            #sidebar_list {
                 padding-bottom: 15px;
+                font-size: 1em;
 
-                li{
+                li {
                     display: inline;
                     padding-top: initial;
                     padding-right: 4%;
                 }
             }
         }
-    }
 
-    #main_content{
-        width: 97%;
+        #main_content.dfs {
+            width: 97%;
+        }
     }
-
 }

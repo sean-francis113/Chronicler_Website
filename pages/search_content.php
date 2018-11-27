@@ -62,7 +62,7 @@
 		</tr>
 	<?php
     
-		$chronicleNum = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS 'count' FROM chronicles_info"))['count'];
+		$chronicleNum = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS 'count' FROM chronicles_info WHERE is_blacklisted=false && is_private=false"))['count'];
 		$retval = '';
 		if($_GET['page'] == 1)
 		{
@@ -113,52 +113,91 @@
 	</table>
         
 	<?php
-    
+        
+		$current_page = $_GET['page'];
+		$prev_page = $current_page - 1;
+		$next_page = $current_page + 1;
+            
 		if($chronicleNum > 20)
 		{
-            
-			echo "<ul id=\'pageList\'>";
-                
-			$pageCount = round(($chronicleNum / 20), 0, PHP_ROUND_HALF_UP);
-            
-			if($pageCount > 4 && $_GET['page'] >= 4)
+
+			echo "<ul id='page_list'>";
+
+			$page_count = round(($chronicleNum / 20), 0, PHP_ROUND_HALF_UP);
+
+			if($page_count > 4)
 			{
-                
-				echo "<li class=\'pageListNum\'><a href=\'http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page=1\'>First</a></li><li class=\'ellipses\'>...</li>";
-                
-				for($i = $_GET['page'] - 2; $i < $_GET['page'] + 2; $i++)
+
+				if($current_page - 2 > 1)
 				{
-                    
-					echo "<li class=\'pageListNum\'><a href=\'http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page=1\'>{$i}</a></li>";
-                    
+					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page=1'>First</a></li><li class='ellipses'>...</li>";
+					$start_page = $current_page - 2;
 				}
-                
-			}
-            
-			if($pageCount <= 4)
-			{
-                
-				for($i = 1; $i <= $pageCount; $i++)
+				else{
+					$start_page = 1;
+				}
+
+				if($current_page + 2 < $page_count)
 				{
-                    
-					echo "<li class=\'pageListNum\'><a href=\'http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page=1\'>{$i}</a></li>";
-                    
+					$end_page = $current_page + 2;
 				}
-                
+				else{
+					$end_page = $page_count;
+				}
+
+				if($current_page != 1)
+				{
+
+					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$prev_page}'>Previous</a></li>";
+
+				}
+
+				for($i = $start_page; $i <= $end_page; $i++)
+				{
+
+					if($i != $current_page)
+					{
+							
+						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+
+					}
+					else{
+						
+						echo "<li class='page_list_num'><a id='current_page' href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+
+					}
+
+				}
+
+				if($current_page != $page_count)
+				{
+
+					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$next_page}'>Next</a></li>";
+
+				}
+
+				if($current_page + 2 < $page_count)
+				{
+					echo "<li class='ellipses'>...</li><li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$page_count}'>Last</a></li>";
+				}
+
 			}
-            
-			if($pageCount > 4 && $_GET['page'] <= $pageCount - 4)
+
+			if($page_count <= 4)
 			{
-                
-				echo "<li class=\'\ellipses'>...</li><li class=\'pageListNum\'><a href=\'http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page={$pageCount}\'>Last</a></li>";
-                
+
+				for($i = 1; $i <= $page_count; $i++)
+				{
+
+					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+
+				}
+
 			}
-            
+
 			echo "</ul>";
-            
-		}
-    
+
+		}      
+        
 	?>
-    
-    
 </div>
