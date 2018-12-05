@@ -112,15 +112,21 @@ body header.dfs hr {
 /* line 92, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body header.dfs #site_navigation {
   font-size: 2em;
+  margin-top: 0;
 }
 
-/* line 95, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 96, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body header.dfs #site_navigation li {
   padding-right: 4%;
   display: inline;
 }
 
-/* line 102, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 101, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body header.dfs #site_navigation .mobile_spacing {
+  display: none;
+}
+
+/* line 107, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #sidebar.dfs {
   float: left;
   width: 15%;
@@ -132,35 +138,35 @@ body #sidebar.dfs {
   margin-right: 1.5%;
 }
 
-/* line 112, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 117, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #sidebar.dfs #sidebar_label {
-  font-size: 1.75em;
-}
-
-/* line 116, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
-body #sidebar.dfs #sidebar_sublabel {
-  font-size: 1.25em;
-  font-style: italic;
+  font-size: 1.5em;
 }
 
 /* line 121, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body #sidebar.dfs #sidebar_sublabel {
+  font-size: 1em;
+  font-style: italic;
+}
+
+/* line 126, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #sidebar.dfs #sidebar_list {
   padding-top: 15px;
   padding-bottom: 10px;
 }
 
-/* line 125, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 130, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #sidebar.dfs #sidebar_list li {
   padding-top: 10px;
   display: list-item;
 }
 
-/* line 131, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 136, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #sidebar.dfs .deactivated_link {
   text-decoration: line-through;
 }
 
-/* line 136, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 141, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs {
   background-image: url(../img/seamless_paper.jpg);
   background-repeat: repeat;
@@ -173,7 +179,7 @@ body #main_content.dfs {
   margin-bottom: 25px;
 }
 
-/* line 147, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 152, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs #page_title {
   text-align: center;
   font-weight: bold;
@@ -182,7 +188,7 @@ body #main_content.dfs #page_title {
   font-size: 2.5em;
 }
 
-/* line 155, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 160, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs #page_subtitle {
   text-align: center;
   font-style: italic;
@@ -190,79 +196,108 @@ body #main_content.dfs #page_subtitle {
   font-size: 2em;
 }
 
-/* line 162, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 167, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs #warning_note {
   font-size: 1.25em;
+  line-height: 1.25em;
   font-style: italic;
   text-decoration: underline;
   text-align: center;
 }
 
-/* line 169, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 175, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs p {
   font-size: 1em;
   line-height: 1.5em;
 }
 
-/* line 174, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 180, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body #main_content.dfs #download_header {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+/* line 186, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body #main_content.dfs #download_list {
+  text-align: center;
+  font-size: 1.25em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 192, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body #main_content.dfs #download_list li {
+  display: inline;
+}
+
+/* line 197, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs #chronicle_table.dfs {
   margin-left: 1.5%;
   margin-right: 1.5%;
   margin-top: 20px;
-  width: 95%;
+  margin-bottom: 20px;
+  width: 97%;
   table-layout: fixed;
+  white-space: nowrap;
 }
 
-/* line 181, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 206, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs #chronicle_table.dfs tr th, body #main_content.dfs #chronicle_table.dfs tr td {
   text-align: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   border: solid 2px black;
-}
-
-/* line 188, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
-body #main_content.dfs #chronicle_table.dfs tr td {
+  white-space: normal;
+  overflow: hidden;
   text-overflow: ellipsis;
-  word-wrap: break-word;
 }
 
-/* line 193, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
-body #main_content.dfs #chronicle_table.dfs #channel_status_column {
-  width: 5%;
-}
-
-/* line 197, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 216, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs #chronicle_table.dfs #channel_name_column, body #main_content.dfs #chronicle_table.dfs #channel_owner_column,
-body #main_content.dfs #chronicle_table.dfs #warning_list_column {
+body #main_content.dfs #chronicle_table.dfs #warning_list_column, body #main_content.dfs #chronicle_table.dfs #date_column {
   width: 25%;
 }
 
-/* line 202, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
-body #main_content.dfs #chronicle_table.dfs #date_column {
-  width: 15%;
-}
-
-/* line 207, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
-body #main_content.dfs #page_list {
-  padding-bottom: 25px;
-  font-size: 1.25em;
+/* line 222, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body #main_content.dfs #getBot_list {
+  list-style-type: decimal;
   text-align: center;
 }
 
-/* line 212, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 226, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body #main_content.dfs #getBot_list li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* line 232, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body #main_content.dfs #getBot_link {
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 30px;
+}
+
+/* line 239, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body #main_content.dfs #page_list {
+  padding-bottom: 25px;
+  font-size: 1.25em;
+}
+
+/* line 243, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs #page_list li {
   padding-right: 3%;
   display: inline;
 }
 
-/* line 217, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 248, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body #main_content.dfs #page_list #current_page {
   font-size: 2em;
   font-weight: bold;
 }
 
-/* line 224, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 255, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body footer.dfs {
   background-image: url(../img/seamless_paper.jpg);
   background-repeat: repeat;
@@ -272,20 +307,25 @@ body footer.dfs {
   padding-bottom: 20px;
 }
 
-/* line 232, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 263, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body footer.dfs #footer_navigation {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* line 236, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 267, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body footer.dfs #footer_navigation li {
   padding-right: 4%;
   font-size: 2em;
   display: inline;
 }
 
-/* line 243, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+/* line 274, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+body footer.dfs .mobile_spacing {
+  display: none;
+}
+
+/* line 278, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
 body footer.dfs #copyright {
   font-size: 0.75em;
   text-align: right;
@@ -295,31 +335,55 @@ body footer.dfs #copyright {
 }
 
 @media screen and (max-width: 950px) {
-  /* line 257, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  /* line 292, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
   body #wrapper {
     margin-left: 2%;
     margin-right: 2%;
   }
-  /* line 262, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  /* line 299, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  body header.dfs #site_navigation {
+    margin-top: 15px;
+  }
+  /* line 302, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  body header.dfs #site_navigation .mobile_spacing {
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  /* line 310, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
   body #sidebar.dfs {
     float: initial;
     margin-right: 0em;
     width: 100%;
   }
-  /* line 267, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  /* line 315, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
   body #sidebar.dfs #sidebar_list {
     padding-bottom: 15px;
     font-size: 1em;
   }
-  /* line 271, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  /* line 319, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
   body #sidebar.dfs #sidebar_list li {
     display: inline;
     padding-top: initial;
     padding-right: 4%;
   }
-  /* line 279, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  /* line 327, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
   body #main_content.dfs {
     width: 97%;
+  }
+  /* line 332, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  body footer.dfs .mobile_spacing {
+    display: block;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+  }
+  /* line 338, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  body footer.dfs #copyright {
+    text-align: center;
+  }
+  /* line 340, C:/xampp/htdocs/dyn_ChroniclerSite/scss/chronicler.scss */
+  body footer.dfs #copyright span {
+    text-align: center;
   }
 }
 

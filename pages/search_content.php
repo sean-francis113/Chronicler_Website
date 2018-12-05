@@ -53,33 +53,38 @@
     
 	<table id='chronicle_table' class="dfs">
 		<tr>
-			<th id="chronicle_status_column">Chronicle Status</th>
-			<th id="chronicle_name_column">Chronicle Name</th>
-			<th id="chronicle_owner_column">Chronicle Owner</th>
+			<th id="chronicle_name_column">Name</th>
+			<th id="chronicle_owner_column">Owner</th>
 			<th id="warning_list_column">Warnings</th>
-			<th id="link_column">Link to Chronicle</th>
-			<th id="date_column">Date Last Modified</th>
+			<th id="link_column">Links</th>
+			<th id="date_column">Last Modified</th>
 		</tr>
 	<?php
     
 		$chronicleNum = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS 'count' FROM chronicles_info WHERE is_blacklisted=false && is_private=false"))['count'];
 		$retval = '';
+		$countInEachPage = 20;
+		$search_start = 0;
+		$search_end = 0;
+
 		if($_GET['page'] == 1)
 		{
             
-			$retval = mysqli_query($conn, "SELECT * FROM chronicles_info WHERE channel_name REGEXP '^[{$findKey}]' LIMIT 0, 20");
-            
+			$retval = mysqli_query($conn, "SELECT * FROM chronicles_info WHERE channel_name REGEXP '^[{$findKey}]' ORDER BY channel_name LIMIT 0, 20");
+            $search_end = 19;
+
 		}
 		else
 		{
             
-			$retval = mysqli_query($conn, "SELECT * FROM chronicles_info WHERE channel_name REGEXP '^[{$findKey}]' LIMIT (20*({$_GET['page']})), 20");
-        
+			$search_start = 20 * ($_GET['page'] - 1);
+			$retval = mysqli_query($conn, "SELECT * FROM chronicles_info WHERE channel_name REGEXP '^[{$findKey}]' ORDER BY channel_name LIMIT {$search_start}, 20");
+			$search_end = $search_start + 19;
+
 		}
         
 		$i = 0;
 		$chroniclePageCollection = [ "" ];
-		$countInEachPage = 20;
         
 		while($chronicleRow = mysqli_fetch_array($retval))
 		{
@@ -102,7 +107,7 @@
                 
 				$date = date_format(date_create($chronicleRow['date_last_modified']), 'm-d-Y H:i:s e');
                 
-				echo "<tr><td><span>{$openStatusStr}</span></td><td><span>{$chronicleRow['channel_name']}</span></td><td><span>{$chronicleRow['channel_owner']}</span></td><td><span>{$warningListStr}</span></td><td><span><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$chronicleRow['channel_id']}&page=1'>Link To Chronicle</a></span></td><td><span>{$date}</span></td></tr>";              
+				echo "<tr><td><span>{$chronicleRow['channel_name']} ({$openStatusStr})</span></td><td><span>{$chronicleRow['channel_owner']}</span></td><td><span>{$warningListStr}</span></td><td><span><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$chronicleRow['channel_id']}&page=1'>Link To Chronicle</a></span></td><td><span>{$date}</span></td></tr>";              
             
 			}
             
@@ -118,19 +123,19 @@
 		$prev_page = $current_page - 1;
 		$next_page = $current_page + 1;
             
-		if($chronicleNum > 20)
+		if($chronicleNum > $countInEachPage)
 		{
 
 			echo "<ul id='page_list'>";
 
-			$page_count = round(($chronicleNum / 20), 0, PHP_ROUND_HALF_UP);
+			$page_count = ceil($chronicleNum / $countInEachPage);
 
 			if($page_count > 4)
 			{
 
 				if($current_page - 2 > 1)
 				{
-					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page=1'>First</a></li><li class='ellipses'>...</li>";
+					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page=1'>First</a></li><li class='ellipses'>...</li>";
 					$start_page = $current_page - 2;
 				}
 				else{
@@ -148,7 +153,7 @@
 				if($current_page != 1)
 				{
 
-					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$prev_page}'>Previous</a></li>";
+					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page={$prev_page}'>Previous</a></li>";
 
 				}
 
@@ -158,12 +163,12 @@
 					if($i != $current_page)
 					{
 							
-						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page={$i}'>{$i}</a></li>";
 
 					}
 					else{
 						
-						echo "<li class='page_list_num'><a id='current_page' href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+						echo "<li class='page_list_num'><a id='current_page' href='http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page={$i}'>{$i}</a></li>";
 
 					}
 
@@ -172,13 +177,13 @@
 				if($current_page != $page_count)
 				{
 
-					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$next_page}'>Next</a></li>";
+					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page={$next_page}'>Next</a></li>";
 
 				}
 
 				if($current_page + 2 < $page_count)
 				{
-					echo "<li class='ellipses'>...</li><li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$page_count}'>Last</a></li>";
+					echo "<li class='ellipses'>...</li><li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page={$page_count}'>Last</a></li>";
 				}
 
 			}
@@ -189,7 +194,17 @@
 				for($i = 1; $i <= $page_count; $i++)
 				{
 
-					echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+					if($i != $current_page)
+					{
+					
+						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page={$i}'>{$i}</a></li>";
+					
+					}
+					else {
+
+						echo "<li class='page_list_num'><a id='current_page' href='http://chronicler.seanmfrancis.net/search.php?range={$_GET['range']}&page={$i}'>{$i}</a></li>";
+
+					}
 
 				}
 

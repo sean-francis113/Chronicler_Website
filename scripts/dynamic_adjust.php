@@ -20,8 +20,8 @@
             var _fs = (_window.x > _window.y ? ((_fsx + _fsy) * 0.5) : _fsx );
 
             // our minimum base font-size should be 8px
-            if (_fs < 8) {
-                _fs = 8;
+            if (_fs < 10) {
+                _fs = 10;
             }
 
             // our maximum base font-size should be 20px

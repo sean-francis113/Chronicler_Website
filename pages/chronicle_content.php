@@ -8,15 +8,21 @@
 		$content_retval = mysqli_query($conn, "SELECT * FROM {$_GET['id']}_contents");
         
 		$info_row = mysqli_fetch_array($info_retval);
-		$content_row = mysqli_fetch_array($content_retval);
             
 		if($info_row['is_blacklisted'] == false)
 		{
     
-			$story_content = $content_row['story_content'];
-			$char_count = $content_row['char_count'];
-			$word_count = $content_row['word_count'];
+			$story_content = "";
+			$char_count = 0;
+			$word_count = 0;
 			$page_title = $info_row['channel_name'];
+
+			while($content_row = mysqli_fetch_array($content_retval))
+			{
+				$story_content .= $content_row['story_content'];
+				$char_count += $content_row['char_count'];
+				$word_count += $content_row['word_count'];
+			}
 
 			#Create a threshold for extra pages. If the story is greater than 1000 words, but less than 1250, then just add it to the same page, otherwise, add it to a new page.
 			if($word_count > 1000 && $word_count > 1250)
@@ -90,12 +96,21 @@
 		for($i = 0; $i < count($page_content_arr); $i++)
 		{
             
-			$page_content .= "<p class='dfs'>" . $page_content_arr[$i] . "</p>";
+			$page_content .= "<p class='chronicle_line'>" . $page_content_arr[$i] . "</p>";
             
 		}
+
+		$filename = str_replace(" ", "_", $page_title);
     
 	?>
-	<h1 id="page_title"><span><?php echo $page_title; ?></span></h1>
+	<h1 id="page_title"><?php echo $page_title; ?></h1>
+	<h2 id="download_header">Download Chronicle:</h2>
+	<ul id="download_list">
+		<li id="text_download"><a href="#">Text (.txt)</a></li>
+		<!--<li id="pdf_download"><a href="#" onclick="generate_pdf()">PDF (.pdf)</a></li>-->
+	</ul>
+	<a href="" download="<?php echo $filename; ?>.txt" id="download_text_file" hidden></a>
+	<a href="" download="<?php echo $filename; ?>.pdf" id="download_pdf_file" hidden></a>
 	<div id="page_content"><?php echo $page_content; ?></div>
 	<?php
         
@@ -111,7 +126,7 @@
 
 				echo "<ul id='page_list'>";
 
-				$page_count = round(($word_count / 1000), 0, PHP_ROUND_HALF_UP);
+				$page_count = ceil($word_count / 1000);
 
 				if($page_count > 4)
 				{
@@ -177,7 +192,16 @@
 					for($i = 1; $i <= $page_count; $i++)
 					{
 
-						echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+						if($i != $current_page){
+
+							echo "<li class='page_list_num'><a href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+
+						}
+						else {
+						
+							echo "<li class='page_list_num'><a id='current_page' href='http://chronicler.seanmfrancis.net/chronicle.php?id={$_GET['id']}&page={$i}'>{$i}</a></li>";
+
+						}
 
 					}
 
