@@ -43,10 +43,10 @@
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="message">Message (Max 1000 Characters)*</label>
+				<label for="message">Message *</label>
 			</td>
 			<td valign="top">
-				<textarea  name="message" maxlength="1000" cols="25" rows="6"></textarea>
+				<textarea  name="message" maxlength="3000" cols="50" rows="6"></textarea>
 			</td>
 		</tr>
 		<tr>

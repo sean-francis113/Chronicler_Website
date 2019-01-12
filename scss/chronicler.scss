@@ -219,30 +219,50 @@ body {
             }
         }
 
-        #getBot_list {
+        ol {
             list-style-type: decimal;
-            text-align: center;
+            margin-left: 10em;
+            margin-right: 10em;
+            padding-bottom: 15px;
 
             li {
-                margin-top: 5px;
-                margin-bottom: 5px;
+                padding-top: 15px;
             }
+        }
+
+        #future_features{
+            
+            list-style-type: circle;
+            margin-left: 10em;
+            margin-right: 10em;
+
+            li{
+                padding-top: 15px;
+            }
+
         }
 
         #getBot_link {
             font-size: 1.5em;
-            text-align: center;
             text-decoration: underline;
-            margin-top: 30px;
+            padding-top: 30px;
+            margin-left: 15em;
+            margin-right: 15em;
+        }
+
+        form{
+            margin-left: 30%;
+            margin-right: 30%;
         }
 
         #page_list {
             padding-bottom: 25px;
             font-size: 1.25em;
+            text-align: center;
 
             li {
                 padding-right: 3%;
-                display: inline;
+                display: inline-flex;
             }
 
             #current_page {
@@ -336,10 +356,8 @@ body {
             }
 
             #copyright {
-                text-align: center;
-                span{
-                    text-align: center;
-                }
+                
+                margin-left: 75%;
 
             }
         }

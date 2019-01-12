@@ -4,7 +4,7 @@
 
     date_default_timezone_set('UCT');
     
-    $conn = mysqli_connect('', '', '', '');
+    $conn = mysqli_connect();
 
     if(! $conn ) {
         die('Could not connect: ' . mysqli_connect_error());
@@ -15,6 +15,7 @@
     include("pages/chronicle_content.php");
     include("pages/footer.php");
 	include("scripts/dynamic_adjust.php");
+	include("scripts/generate_text.php");
 	
 	mysqli_close($conn);
 

@@ -8,86 +8,98 @@
 		$content_retval = mysqli_query($conn, "SELECT * FROM {$_GET['id']}_contents");
         
 		$info_row = mysqli_fetch_array($info_retval);
-            
-		if($info_row['is_blacklisted'] == false)
+		
+		if(mysqli_num_rows($info_retval) != 0)
 		{
-    
-			$story_content = "";
-			$char_count = 0;
-			$word_count = 0;
-			$page_title = $info_row['channel_name'];
-
-			while($content_row = mysqli_fetch_array($content_retval))
+            
+			if($info_row['is_blacklisted'] == false)
 			{
-				$story_content .= $content_row['story_content'];
-				$char_count += $content_row['char_count'];
-				$word_count += $content_row['word_count'];
-			}
+	    
+				$story_content = "";
+				$char_count = 0;
+				$word_count = 0;
+				$page_title = $info_row['channel_name'];
 
-			#Create a threshold for extra pages. If the story is greater than 1000 words, but less than 1250, then just add it to the same page, otherwise, add it to a new page.
-			if($word_count > 1000 && $word_count > 1250)
-			{
-				
-				$word_arr = preg_split('/ /', $story_content);
-
-				if($_GET['page'] > 1)
+				while($content_row = mysqli_fetch_array($content_retval))
 				{
+					$story_content .= $content_row['entry_editted'] . "\n";
+					$char_count += $content_row['char_count'];
+					$word_count += $content_row['word_count'];
+				}
 
-					$start_position = 1000 * ($_GET['page'] - 1);
+				#Create a threshold for extra pages. If the story is greater than 1000 words, but less than 1250, then just add it to the same page, otherwise, add it to a new page.
+				if($word_count > 1000 && $word_count > 1250)
+				{
+					
+					$word_arr = preg_split('/ /', $story_content);
+
+					if($_GET['page'] > 1)
+					{
+
+						$start_position = 1000 * ($_GET['page'] - 1);
+
+					}
+					else
+					{
+
+						$start_position = 0;
+					
+					}
+
+					if($start_position + 1000 < (count($word_arr) - 1))
+					{
+						
+						$end_position = $start_position + 1000;
+
+					}
+					else{
+						
+						$end_position = count($word_arr) - 1;
+
+					}
+
+					$page_content = "";
+
+					for($i = $start_position; $i <= $end_position; $i++)
+					{
+						if($i != $end_position)
+						{
+
+							$page_content .= $word_arr[$i] . " ";
+
+						}
+						else
+						{
+						
+							$page_content .= $word_arr[$i];
+
+						}
+					}
 
 				}
 				else
 				{
 
-					$start_position = 0;
-				
-				}
-
-				if($start_position + 1000 < (count($word_arr) - 1))
-				{
-					
-					$end_position = $start_position + 1000;
+					$page_content = $story_content;
 
 				}
-				else{
-					
-					$end_position = count($word_arr) - 1;
-
-				}
-
-				$page_content = "";
-
-				for($i = $start_position; $i <= $end_position; $i++)
-				{
-					if($i != $end_position)
-					{
-
-						$page_content .= $word_arr[$i] . " ";
-
-					}
-					else
-					{
-					
-						$page_content .= $word_arr[$i];
-
-					}
-				}
-
+	            
 			}
 			else
 			{
-
-				$page_content = $story_content;
-
+	        
+				$page_title = "Unavailable";
+				$page_content = "This Chronicle has been blacklisted, never to be read again.";
+	        
 			}
-            
+		
 		}
 		else
 		{
-        
+			
 			$page_title = "Unavailable";
-			$page_content = "This Chronicle has been blacklisted, never to be read again.";
-        
+			$page_content = "This Chronicle does not exist! If you feel that this is a mistake, please send us an email either through the form under 'Contact Us' or at thechroniclerbot@gmail.com with your issue and we will take care of it as soon as possible.";
+			
 		}
     
 		$page_content_arr = preg_split('/\r\n|\r|\n/', $page_content);

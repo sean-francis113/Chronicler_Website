@@ -61,7 +61,7 @@
 		</tr>
 	<?php
     
-		$chronicleNum = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS 'count' FROM chronicles_info WHERE is_blacklisted=false && is_private=false"))['count'];
+		$chronicleNum = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS 'count' FROM chronicles_info WHERE is_blacklisted=false && is_private=false && channel_name REGEXP '^[{$findKey}]'"))['count'];
 		$retval = '';
 		$countInEachPage = 20;
 		$search_start = 0;

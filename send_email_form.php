@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['email'])) {
  
-    $email_to = "";
+    $email_to = "thechroniclerbot@gmail.com";
     $email_subject = "";
  
     function died($error) {
@@ -77,7 +77,8 @@ if(isset($_POST['email'])) {
 
 	date_default_timezone_set('UCT');
     
-    $conn = mysqli_connect('', '', '', '');
+    $conn = mysqli_connect();
+    #$conn = mysqli_connect();
 
     if(! $conn ) {
         die('Could not connect: ' . mysqli_connect_error());

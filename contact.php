@@ -4,7 +4,7 @@
 
     date_default_timezone_set('UCT');
     
-    $conn = mysqli_connect('', '', '', '');
+    $conn = mysqli_connect();
 
     if(! $conn ) {
         die('Could not connect: ' . mysqli_connect_error());
