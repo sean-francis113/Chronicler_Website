@@ -77,15 +77,11 @@ if(isset($_POST['email'])) {
 
 	date_default_timezone_set('UCT');
     
-    $conn = mysqli_connect();
-    #$conn = mysqli_connect();
-
-    if(! $conn ) {
-        die('Could not connect: ' . mysqli_connect_error());
-    }
+    include("connect.php");
 
     include("pages/header.php");
     include("pages/sidebar.php");
+	include("pages/settings_bar.php");
 ?>
 
 <div id="main_content" class="dfs">
@@ -97,6 +93,9 @@ if(isset($_POST['email'])) {
 <?php
     include("pages/footer.php");
 	include("scripts/dynamic_adjust.php");
+	include("scripts/cookies.php");
+	include("scripts/alter_page.php");
+	include("scripts/final_checks.php");
 	
 	mysqli_close($conn);
 }

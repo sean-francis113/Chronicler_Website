@@ -101,26 +101,45 @@ body {
             .mobile_spacing {
                 display: none;
             }
+			
+			.mobile_nav_side {
+			
+				padding-right: default;
+			
+			}
+			
+			.last_nav {
+	
+				padding-right: 0px;
+	
+			}
+			
         }
+		
     }
+	
+	#sideblocks {
+	
+		float: left;
+		width: 15%;
+		margin-right: 1.5%;
+	
+	}
 
     #sidebar.dfs {
-        float: left;
-        width: 15%;
+        width: 100%;
         padding-top: 10px;
         text-align: center;
         background-image: url(../img/seamless_paper.jpg);
         background-repeat: repeat;
         margin-bottom: 25px;
-        margin-right: 1.5%;
 
         #sidebar_label {
-            font-size: 1.5em;
+            font-size: 1.25em;
         }
 
         #sidebar_sublabel {
             font-size: 1em;
-            font-style: italic;
         }
 
         #sidebar_list {
@@ -136,20 +155,56 @@ body {
         .deactivated_link {
             text-decoration: line-through;
         }
+		
+    }
+	
+	#settings_bar.dfs {
+		width: 100%;
+		padding-top: 10px;
+        text-align: center;
+        background-image: url(../img/seamless_paper.jpg);
+        background-repeat: repeat;
+        margin-bottom: 25px;
+
+        #settings_label {
+            font-size: 1.25em;
+        }
+
+        #settings_sublabel {
+            font-size: 1em;
+        }
+
+        #settings_list {
+            padding-top: 15px;
+            padding-bottom: 10px;
+
+            li {
+                padding-top: 10px;
+                display: list-item;
+			}
+			
+			input {
+			
+				width: 1.25em;
+			
+			}
+        }
+		
     }
 
     #main_content.dfs {
         background-image: url(../img/seamless_paper.jpg);
         background-repeat: repeat;
-        float: left;
-        width: 80.5%;
+		float: left;
+		width: 78.5%;
         text-align: left;
         padding-bottom: 20px;
-        padding-left: 1.5%;
-        padding-right: 1.5%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
         margin-bottom: 25px;
 
         #page_title {
+			margin: auto;
             text-align: center;
             font-weight: bold;
             margin-top: 20px;
@@ -159,7 +214,6 @@ body {
 
         #page_subtitle {
             text-align: center;
-            font-style: italic;
             margin-bottom: 20px;
             font-size: 2em;
         }
@@ -182,21 +236,130 @@ body {
             font-size: 1.5em;
             margin-top: 20px;
         }
+		
+		#text_download {
+			width: 35%;
+			margin-left: 7.5%;
+		
+			#text_download_header {
+            	text-align: center;
+            	font-size: 1.25em;
+            	margin-top: 20px;
+        	}		
 
-        #download_list {
-            text-align: center;
-            font-size: 1.25em;
-            margin-top: 20px;
-            margin-bottom: 20px;
+        	#text_download_list {
+            	text-align: center;
+            	font-size: 1.25em;
+				margin: auto;
+            	margin-top: 20px;
+            	margin-bottom: 20px;
 
-            li {
-                display: inline;
-            }
-        }
+            	li {
+                	display: inline;
+					margin-left: 1%;
+					margin-right: 1%;
+					text-decoration: underline;
+            	}
+        	}
+		
+		}
+		
+		.spoiler {
+			
+			background-color: black;
+			border: 2px solid black;
+			border-radius: 10px;
+			padding: 0.5%;
+			
+			.multilinecode, .singlelinecode {
+			
+				width: default;
+				margin: default;
+			
+			}
+		
+		}
+		
+		.italics_bold_underline {
+		
+			font-style: italic;
+			font-weight: bold;
+			text-decoration: underline;
+		
+		}
+		
+		.italics_bold {
+		
+			font-style: italic;
+			font-weight: bold;
+		
+		}
+		
+		.bold_underline {
+		
+			font-weight: bold;
+			text-decoration: underline;
+		
+		}
+		
+		.bold {
+		
+			font-weight: bold;
+		
+		}
+		
+		.italics_underline {
+		
+			font-style: italic;
+			text-decoration: underline;			
+		
+		}
+		
+		.strikeout {
+		
+			text-decoration: line-through;
+		
+		}
+		
+		.italics {
+		
+			font-style: italic;
+		
+		}
+		
+		.underline {
+		
+			text-decoration: underline;
+		
+		}
+		
+		.pinned {
+		
+			border: 2px solid black;
+			border-radius: 10px;
+			padding: 10px;
+			margin: auto;
+			width: 75%;
+			margin-bottom: 10px;
+			
+			img
+			{
+			
+				width: 5%;
+			
+			}
+			
+			span {
+			
+				margin-top: auto;
+				margin-bottom: auto;
+			
+			}
+		
+		}
 
         #chronicle_table.dfs {
-            margin-left: 1.5%;
-            margin-right: 1.5%;
+            margin: auto;
             margin-top: 20px;
             margin-bottom: 20px;
             width: 97%;
@@ -218,11 +381,42 @@ body {
                 width: 25%;
             }
         }
+		
+		#update_table.dfs {
+			
+			width: 60%;
+			table-layout: default;
+			margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            tr th, tr td {
+                text-align: center;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                border: solid 2px black;
+                white-space: normal;
+                overflow: hidden;
+            }
+			
+			#update_time{
+			
+				width: 33%;
+			
+			}
+			
+			#update_description{
+			
+				width: 67%;
+			
+			}
+		
+		}
 
         ol {
             list-style-type: decimal;
-            margin-left: 10em;
-            margin-right: 10em;
+            margin: auto;
+			width: 75%;
             padding-bottom: 15px;
 
             li {
@@ -230,7 +424,7 @@ body {
             }
         }
 
-        #future_features{
+        #future_features {
             
             list-style-type: circle;
             margin-left: 10em;
@@ -246,13 +440,44 @@ body {
             font-size: 1.5em;
             text-decoration: underline;
             padding-top: 30px;
-            margin-left: 15em;
-            margin-right: 15em;
+			margin: auto;
+			width: 75%;
+			text-align: center;
         }
+		
+		#backup_command_link {
+		
+			font-size: 0.75em;
+            text-decoration: underline;
+            padding-top: 40px;
+			margin: auto;
+			width: 75%;
+			text-align: center;
+		
+		}
 
         form{
-            margin-left: 30%;
-            margin-right: 30%;
+            margin: auto;
+			width: 75%;
+			
+			table {
+				padding-bottom: 20px;				
+			
+				tr {
+				
+					margin-bottom: 10px;
+				
+				}
+			
+			}
+			
+			
+			input {
+			
+				width: 50%;
+				margin: auto;
+			
+			}
         }
 
         #page_list {
@@ -275,34 +500,87 @@ body {
     footer.dfs {
         background-image: url(../img/seamless_paper.jpg);
         background-repeat: repeat;
-        clear: both;
+		clear: both;
         margin-top: 40px;
         padding-top: 25px;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
+		text-indent: default;
+		overflow: auto;
 
         #footer_navigation {
             text-align: center;
-            margin-bottom: 20px;
+			margin: auto;
+			margin-top: 20px;
+            margin-bottom: 30px;
 
             li {
                 padding-right: 4%;
                 font-size: 2em;
                 display: inline;
             }
+			
+			.mobile_nav_side {
+			
+				padding-right: default;
+			
+			}
+			
+			.last_nav {
+	
+				padding-right: 0px;
+			
+			}
         }
 
         .mobile_spacing {
             display: none;
         }
 
+		#property_disclaimer {
+		
+			font-size: 0.75em;
+            margin: auto;
+			width: 60%;
+			text-align: center;
+		
+		}
+
         #copyright {
+		
+			float: right;
             font-size: 0.75em;
-            text-align: right;
-            margin-left: 85%;
-            margin-top: 40px;
-            padding-bottom: 40px;
+			margin-right: 5%;
+            padding-top: 20px;
+            padding-bottom: 10px;
+			
         }
     }
+	
+	.multilinecode, .singlelinecode {
+		
+		background-color: grey;
+		border: 2px solid black;
+		border-radius: 10px;
+		padding: 0.5%;
+		width: 75%;
+		margin: auto;
+		
+	}
+	
+}
+
+@media screen and (max-width: 1320px)
+{
+
+	footer.dfs {
+
+        #copyright {
+                
+            margin-right: 5%;
+
+        }
+    }
+
 }
 
 @media screen and (max-width: 950px)
@@ -318,6 +596,14 @@ body {
 
             #site_navigation {
                 margin-top: 15px;
+				
+				
+			
+				.mobile_nav_side {
+			
+					padding-right: 0px;
+			
+				}
 
                 .mobile_spacing {
                     display: block;
@@ -326,11 +612,28 @@ body {
                 }
             }
         }
+		
+		#sideblocks{
+		
+			float: initial;
+			width: 100%;
+		
+		}
 
         #sidebar.dfs {
-            float: initial;
             margin-right: 0em;
-            width: 100%;
+
+			#sidebar_label {
+				
+				font-size: 1.5em;
+			
+			}
+			
+			#sidebar_sublabel {
+			
+				font-size: 1.25em;
+			
+			}
 
             #sidebar_list {
                 padding-bottom: 15px;
@@ -343,9 +646,31 @@ body {
                 }
             }
         }
+		
+		#settings_bar.dfs {
+            margin-right: 0em;
+			
+			#settings_label {
+			
+				font-size: 1.5em;
+			
+			}
+
+            #settings_list {
+                padding-bottom: 15px;
+                font-size: 1em;
+
+                li {
+                    display: inline;
+                    padding-top: initial;
+                    padding-right: 4%;
+                }
+            }
+		
+    	}
 
         #main_content.dfs {
-            width: 97%;
+            width: 95%;
         }
 
         footer.dfs {
@@ -354,12 +679,29 @@ body {
                 padding-top: 7.5px;
                 padding-bottom: 7.5px;
             }
+			
+			.mobile_nav_side {
+			
+				padding-right: 0px;
+			
+			}
 
             #copyright {
                 
-                margin-left: 75%;
+                margin-right: 5%;
 
             }
         }
     }
+}
+
+@media screen and (max-width: 600px)
+{
+
+	#copyright {
+                
+        margin-right: 8%;
+
+    }
+
 }

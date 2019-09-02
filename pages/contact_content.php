@@ -1,30 +1,30 @@
 <div id="main_content" class="dfs">
 	<h1 id="page_title">Contact Us</h1>
-	<p>Please use the below form to contact us. We accept and appreciate all forms of criticism, complaint, suggestion and comment.</p>
+	<p>Please use the below form to contact us. If the form is broken, you can also email us at thechroniclerbot@gmail.com</p>
 	<p>Anything marked with an asterisk (*) is required.</p>
 	<form name="contactform" method="post" action="send_email_form.php">
 		<table>
 		<tr>
-			<td valign="top">
+			<td>
 				<label for="first_name">Name</label>
 			</td>
-			<td valign="top">
+			<td>
 				<input  type="text" name="name" maxlength="50" size="30">
 			</td>
 		</tr>
 		<tr>
-			<td valign="top">
+			<td>
 				<label for="email">Email Address *</label>
 			</td>
-			<td valign="top">
+			<td>
 				<input  type="text" name="email" maxlength="80" size="30">
 			</td>
 		</tr>
 		<tr>
-			<td valign="top">
+			<td>
 				<label for="category">Category *</label>
 			</td>
-			<td valign="top">
+			<td>
 				<select name="category">
 					<option value="issue">Issue</option>
 					<option value="suggestion">Suggestion</option>
@@ -34,26 +34,22 @@
 			</td>
 		</tr>
 		<tr>
-			<td valign="top">
-				<label for="subject">Subject *</label>
+			<td>
+				<label for="subject">Subject</label>
 			</td>
-			<td valign="top">
+			<td>
 				<input type="text" name="subject" maxlength="100" size="30">
 			</td>
 		</tr>
 		<tr>
-			<td valign="top">
+			<td>
 				<label for="message">Message *</label>
 			</td>
-			<td valign="top">
-				<textarea  name="message" maxlength="3000" cols="50" rows="6"></textarea>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" style="text-align:center">
-				<input type="submit" value="Send Message">
+			<td>
+				<textarea  name="message" maxlength="50" cols="50" rows="6"></textarea>
 			</td>
 		</tr>
 		</table>
+		<input style="margin-top:5px" type="submit" value="Send Message">
 		</form>
 </div>

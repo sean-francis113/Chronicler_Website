@@ -7,14 +7,14 @@
 
 <body>
     <div id="wrapper">
-            <header class="dfs">
+            <header id="site_header" class="dfs">
                 <h1 id="site_label">The Chronicler Database</h1>
                 <hr>
                 <ul id="site_navigation">
                     <li><a href="http://chronicler.seanmfrancis.net/index.php">Home</a></li>
-                    <li><a href="http://chronicler.seanmfrancis.net/getBot.php">Get The Chronicler</a></li>
+                    <li class="moblie_nav_side"><a href="http://chronicler.seanmfrancis.net/getBot.php">Get The Chronicler</a></li>
 					<div class="mobile_spacing"></div>
                     <li><a href="http://chronicler.seanmfrancis.net/about.php">About</a></li>
-                    <li><a href="http://chronicler.seanmfrancis.net/contact.php">Contact Us</a></li>
+                    <li class="last_nav"><a href="http://chronicler.seanmfrancis.net/contact.php">Contact Us</a></li>
                 </ul>
             </header>
